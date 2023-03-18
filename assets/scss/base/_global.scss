@@ -1,0 +1,70 @@
+//************** - Global - *****************
+@use '../abstracts/colors' as clr;
+@use '../base/typography' as typo;
+
+* {
+  font-family: typo.$font-default;
+  scroll-behavior: smooth;
+  scroll-margin-top: 5rem;
+}
+
+a {
+  color: clr.$black;
+  text-decoration: none;
+}
+
+.list-unstyle {
+  list-style: none !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+main > section {
+  margin-bottom: 2rem !important;
+
+  & .section-heading {
+
+    h2 {
+      font-weight: 400;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 2rem;
+        left: 25%;
+        width: 50%;
+        height: .3rem;
+        border-radius: 1rem 1rem 0 0;
+        background-color: clr.$black;
+      }
+    }
+  }
+
+  .contact--area-heading {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    align-self: center;
+    gap: 1rem;
+  }
+
+  .contact--area-heading > h2 {
+    font-weight: 400;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      left: 25%;
+      width: 50%;
+      height: .3rem;
+      border-radius: 1rem 1rem 0 0;
+      background-color: clr.$black;
+    }
+  }
+}

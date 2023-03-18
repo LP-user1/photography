@@ -1,0 +1,168 @@
+@use '../abstracts/colors' as clr;
+@use '../abstracts/mixins' as mixin;
+@use '../base/typography' as typo;
+
+.service-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-flow: column wrap;
+  gap: 1rem;
+  padding: 2rem;
+
+  @include mixin.responsive('md', 'md') {
+    padding: 2rem;
+  }
+
+  @include mixin.responsive(xs) {
+    padding: 1rem 0;
+  }
+
+  @include mixin.responsive('xxs') {
+    padding: 1rem .8rem;
+  }
+
+  .section-heading {
+    margin-bottom: .5rem !important;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 0;
+
+    @include mixin.responsive('md', 'md') {
+      padding: 1rem;
+    }
+
+    @include mixin.responsive('xs') {
+      padding: 1rem;
+    }
+
+    @include mixin.responsive('xxs') {
+      padding: 1rem;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0;
+      border-radius: 1rem;
+      box-shadow: 0 0 .1rem clr.$black-hover;
+
+      @include mixin.responsive('md', 'md') {
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      @include mixin.responsive('xxs') {
+        gap: .5rem;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: .5rem;
+        box-shadow: none;
+      }
+
+      &:nth-of-type(odd) {
+        flex-direction: row-reverse;
+
+        @include mixin.responsive('xxs') {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      .service-details {
+        padding: .2rem 1rem;
+        width: 50%;
+
+        @include mixin.responsive(md, 'md') {
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          h3 {
+            align-self: flex-start;
+            margin-bottom: .5rem;
+          }
+
+          p {
+            font-size: .9rem;
+          }
+        }
+
+        @include mixin.responsive('xs') {
+          width: 40%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          p {
+            display: none;
+          }
+        }
+
+        @include mixin.responsive('xxs') {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          h3,
+          p {
+            display: none;
+          }
+        }
+      }
+
+      figure.card {
+        width: 15rem;
+        height: 15rem;
+        display: grid;
+        grid-template-rows: 1fr 6rem;
+        transition: grid-template-rows 400ms;
+        overflow: hidden;
+        border-radius: 1rem;
+        background-color: clr.$black;
+
+        figcaption {
+          color: clr.$white;
+
+          h3 {
+            margin-top: 1rem;
+            font-size: 1rem !important;
+          }
+
+          h3,
+          p {
+            margin-left: 1.4rem;
+          }
+
+          p {
+            font-size: .8rem;
+            color: clr.$white-light;
+          }
+        }
+
+        & img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        // &:hover {
+        //   grid-template-rows: 1fr 6rem;
+        // }
+      }
+    }
+  }
+}

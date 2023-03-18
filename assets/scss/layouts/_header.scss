@@ -1,0 +1,171 @@
+@use '../base/typography' as typo;
+@use '../abstracts/colors' as clr;
+@use '../abstracts/mixins' as mixin;
+
+header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: clr.$nav--bg;
+  z-index: 10;
+  box-shadow: 0 0 .5rem .2rem #00000016;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: .3rem 4rem;
+
+
+  @include mixin.responsive('lg', 'lg') {
+    padding: .3rem 3rem;
+  }
+
+  @include mixin.responsive('md', 'md') {
+    padding: .3rem 2rem;
+  }
+
+  @include mixin.responsive('sm', 'sm') {
+    padding: .3rem 1.5rem;
+  }
+
+  @include mixin.responsive('lg') {
+    padding: .3rem 3rem;
+  }
+
+  @include mixin.responsive('xl') {
+    padding: .3rem 4rem;
+  }
+
+  &--brand {
+    &-link {
+      font-size: 2rem;
+      font-family: typo.$font--brand-name;
+      transition: 200ms;
+
+      @include mixin.responsive('xxs') {
+        font-size: 1.5rem;
+      }
+
+      &:hover {
+        color: clr.$brand--hover;
+      }
+    }
+  }
+
+  &--menuOpen {
+
+    display: none;
+    cursor: pointer;
+
+    @include mixin.responsive('md', 'md') {
+      display: block;
+    }
+
+    svg {
+      width: 1.5rem;
+      height: 2rem;
+    }
+  }
+
+  &--links {
+
+    @include mixin.responsive('md', 'md') {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      background-color: clr.$nav--bg;
+      box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.235);
+      width: 50% !important;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      z-index: 11;
+      padding: .8rem 2rem;
+      transition: 300ms ease-in-out;
+
+      &.showMenu {
+        right: 0;
+      }
+    }
+
+    @include mixin.responsive('sm', 'sm') {
+      width: 70% !important;
+    }
+
+    &-menuClose {
+
+      display: none;
+      cursor: pointer;
+
+      @include mixin.responsive('md', 'md') {
+        display: flex;
+        align-self: self-end;
+      }
+
+      svg {
+        width: 1.5rem;
+        height: 2rem;
+      }
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+
+
+      @include mixin.responsive('lg', 'lg') {
+        gap: 2rem;
+
+      }
+
+      @include mixin.responsive('md', 'md') {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 8rem;
+      }
+
+      li {
+        position: relative;
+
+        &::after {
+          content: '';
+          top: 1.7rem;
+          left: 40%;
+          position: absolute;
+          background-color: transparent;
+          width: 20%;
+          height: .2rem;
+          border-radius: 4rem;
+          transition: 300ms ease-in-out;
+        }
+
+        &:hover > a {
+          color: clr.$black-hover !important;
+        }
+
+        &:hover:not(.active)::after {
+          left: 5%;
+          width: 90%;
+          background-color: clr.$nav--link-hover;
+
+          @include mixin.responsive('md', 'md') {
+            background-color: transparent;
+          }
+        }
+
+        &.active > a {
+          color: clr.$nav--link-active !important;
+        }
+      }
+    }
+  }
+
+}

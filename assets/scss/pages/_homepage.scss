@@ -1,0 +1,170 @@
+@use '../base/typography' as typo;
+@use '../abstracts/colors' as clr;
+@use '../abstracts/mixins' as mixin;
+
+main {
+  .hero-area {
+    height: 80vh;
+    width: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.159), rgba(255, 255, 255, 0.152)), url('../img/cam-landscape.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column wrap;
+
+    @include mixin.responsive('lg') {
+      height: 80vh;
+      padding: 0 2rem;
+    }
+
+    @include mixin.responsive('xl') {
+      height: 80vh;
+      padding: 0;
+    }
+
+
+    @include mixin.responsive('lg', 'lg') {
+      height: 90vh;
+      background-position: center;
+      align-items: flex-start;
+      padding: 0 4rem;
+    }
+
+    @include mixin.responsive('md', 'md') {
+      padding: 0 3rem;
+    }
+
+    @include mixin.responsive('sm', 'sm') {
+      padding: 0 1.5rem;
+    }
+
+    &--greeting {
+      font-size: 3rem;
+      color: clr.$white;
+      margin-top: 7%;
+      font-family: typo.$font-roboto;
+
+      @include mixin.responsive('lg') {
+        font-size: 2.5rem;
+        margin-top: 10%;
+      }
+
+      @include mixin.responsive('xl') {
+        font-size: 3rem;
+        margin-top: 7%;
+      }
+
+      @include mixin.responsive('lg', 'lg') {
+        font-size: 2.5rem;
+        margin-top: 11rem;
+      }
+
+      @include mixin.responsive('md', 'md') {
+        font-size: 2.3rem;
+        margin-top: 10rem;
+      }
+
+      @include mixin.responsive('sm', 'sm') {
+        font-size: 2.2rem;
+        margin-top: 9rem;
+      }
+
+      &-span {
+        font-size: 3.6rem;
+        color: clr.$brand--color;
+
+        @include mixin.responsive('lg') {
+          font-size: 3rem;
+        }
+
+        @include mixin.responsive('xl') {
+          font-size: 3.6rem;
+        }
+
+        @include mixin.responsive('lg', 'lg') {
+          font-size: 1.7em;
+        }
+
+        @include mixin.responsive('md', 'md') {
+          font-size: 2.5rem;
+        }
+
+        @include mixin.responsive('sm', 'sm') {
+          font-size: 2.3rem;
+        }
+
+        span {
+          color: transparent !important;
+          margin-left: .3rem;
+          -webkit-text-stroke: 3px clr.$brand--color !important;
+
+          @include mixin.responsive('lg') {
+            -webkit-text-stroke: 2px clr.$brand--color !important;
+          }
+
+          @include mixin.responsive('xl') {
+            -webkit-text-stroke: 3px clr.$brand--color !important;
+          }
+
+          @include mixin.responsive('md', 'md') {
+            -webkit-text-stroke: 1.5px clr.$brand--color !important;
+          }
+
+          @include mixin.responsive('sm', 'sm') {
+            -webkit-text-stroke: 1.5px clr.$brand--color !important;
+          }
+        }
+      }
+    }
+
+    p {
+      color: clr.$white;
+      font-size: 1.1rem;
+
+      @include mixin.responsive('lg', 'lg') {
+        font-size: 1rem;
+        margin-top: .5rem;
+      }
+
+      @include mixin.responsive('md', 'md') {
+        font-size: .8rem;
+        margin-top: 1rem;
+      }
+
+      @include mixin.responsive('sm', 'sm') {
+        font-size: .8rem;
+        margin-top: 1rem;
+      }
+
+    }
+
+    button.btn-enquiry {
+      margin-top: 1.7rem;
+      padding: .4rem 1rem;
+      background-color: clr.$brand--color;
+      border: none;
+      outline: none;
+      color: clr.$white;
+      border-radius: .5rem;
+      transition: 300ms;
+      cursor: pointer;
+
+      @include mixin.responsive('md', 'md') {
+        margin-top: 6rem;
+        align-self: center;
+      }
+
+      @include mixin.responsive('sm', 'sm') {
+        margin-top: 5rem;
+        align-self: center;
+      }
+
+      &:hover {
+        box-shadow: 0 0 .8rem clr.$brand--color;
+      }
+    }
+  }
+}

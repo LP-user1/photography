@@ -1,0 +1,78 @@
+// ******************** - Media Quries - **************************
+
+
+@mixin responsive($breakpoint , $scope: "", $orientation: "") {
+  @if $breakpoint ==xxs {
+    @media only screen and (max-width:370px) and (orientation: portrait) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==xs {
+    @if $orientation =="l" {
+      @media only screen and (min-width: 480px) and (max-width: 900px) and (orientation: landscape) {
+        @content;
+      }
+    }
+
+    @else {
+      @media only screen and (max-width:575.98px) {
+        @content;
+      }
+    }
+  }
+
+  @else if $breakpoint ==sm {
+    @if $scope =="sm" {
+      @media only screen and (max-width:575.98px) {
+        @content;
+      }
+    }
+
+    @else {
+      @media only screen and (min-width:576px) {
+        @content;
+      }
+    }
+  }
+
+  @else if $breakpoint ==md {
+    @if $scope =="md" {
+      @media only screen and (max-width:767.98px) {
+        @content;
+      }
+    }
+
+    @else {
+      @media only screen and (min-width:768px) {
+        @content;
+      }
+    }
+  }
+
+  @else if $breakpoint ==lg {
+    @if $scope =="lg" {
+      @media only screen and (max-width:991.98px) {
+        @content;
+      }
+    }
+
+    @else {
+      @media only screen and (min-width:992px) {
+        @content;
+      }
+    }
+  }
+
+  @else if $breakpoint ==xl {
+    @media only screen and (min-width:1200px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==xxl {
+    @media only screen and (min-width:1400px) {
+      @content;
+    }
+  }
+}

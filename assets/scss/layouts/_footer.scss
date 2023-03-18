@@ -1,0 +1,86 @@
+@use '../abstracts/mixins' as mixin;
+@use '../base/typography' as typo;
+@use '../abstracts/colors' as clr;
+
+footer {
+  background-color: clr.$bg--light;
+  width: 100%;
+
+  .footer {
+    &-container {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      padding: 3rem 1.5rem;
+
+      @include mixin.responsive('md', 'md') {
+        padding: 2.5rem 1rem;
+      }
+
+      @include mixin.responsive('sm', 'sm') {
+        padding: 1.5rem;
+        flex-direction: column;
+      }
+
+      @include mixin.responsive('xxs') {
+        padding: 2rem 1rem;
+        flex-direction: column;
+      }
+
+      &-col {
+        padding: .5rem 4rem;
+        width: 50%;
+
+        @include mixin.responsive('md', 'md') {
+          padding: .5rem 1.5rem;
+        }
+
+        @include mixin.responsive('sm', 'sm') {
+          padding: .5rem;
+          width: 100%;
+        }
+
+        p {
+          margin-top: .5rem;
+        }
+
+        p a {
+          text-decoration: underline;
+
+          &:hover {
+            color: clr.$brand--color;
+          }
+        }
+
+        img.footer-brand-logo {
+          width: 3rem;
+          height: 3rem;
+          padding: .3rem;
+          border-radius: 50%;
+          object-fit: contain;
+          box-shadow: 0 0 .3rem clr.$black-hover;
+
+          @include mixin.responsive('sm', 'sm') {
+            width: 2rem;
+            height: 2rem;
+          }
+        }
+
+        h4 {
+          margin-bottom: .5rem;
+        }
+
+        ul li {
+          a.fsmall {
+            font-size: .9rem;
+
+            &:hover {
+              color: clr.$black-hover;
+              transition: 200ms;
+            }
+          }
+        }
+      }
+    }
+  }
+}
